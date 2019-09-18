@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Laboratorio con Angularjs</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  </head>
+  <body>
+    <!--Barra de navegacion-->
+    <div class="navbar-fixed">
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#q1">Java vs JS</a></li>
+        <li><a href="#q2">Date</a></li>
+        <li><a href="#q3">Arrays</a></li>
+        <li><a href="#q4">Funcion local</a></li>
+        <li><a href="#q5">Variables globales</a></li>
+        <li><a href="#q6">Encontrar patrones</a></li>
+        <li><a href="#q7">Material design</a></li>
+      </ul>
+      <nav>
+        <div class="nav-wrapper teal lighten-2">
+          <a href="#" class="brand-logo right">Lab AngularJS</a>
+        </div>
+      </nav>
+    </div>
+    <!--Bloque de preguntas-->
+    <section class="container">
+      <h1 class="center">Pruebas</h1>
+      <div class="divider row z-depth-1 z-depth-1"></div>
+
+      <div ng-app="modulo1" ng-controller="controlador1" ng-init="myCol=''">
+        <div style="height: 10em;">
+            <p>Escribe tu nombre: <input type="text" ng-model="name"></p>
+            <p ng-bind="name"></p>
+        </div>
+        <p style="height: 5em;">En AngularJS el resultado de escribir 5+5 entre doble { } es: {{ 5 + 5 }}</p>
+        AngularJs resuelve la expresion y regresa un resultado, escribe un color:
+        <ul>
+            <li>Red</li>
+            <li>Green</li>
+            <li>Yellow</li>
+            <li>Blue</li>
+            <li>Etc.</li>
+        </ul>
+        <input style="background-color:{{myCol}}" ng-model="myCol">
+        Aqui se hara uso de un controlador:<br><br>
+        var app = angular.module("modulo1", []);<br>
+            app.controller("controlador1", function($scope) {<br>
+                $scope.nombre = "Javier";<br>
+                $scope.appaterno = "Mendez";<br>
+                $scope.apmaterno = "Martinez";<br>
+            });<br><br>
+            
+            var app = angular.module("modulo2", []);<br>
+            app.controller("controlador2", function($scope) {<br>
+                $scope.nombre = "Juan";<br>
+                $scope.appaterno = "Perez";<br>
+                $scope.apmaterno = "Castro";<br>
+            });<br><br>
+        Al usar:<br>
+        { "Hola " + nombre + " " + appaterno + " " + apmaterno} <br><br>
+        Se obtiene:
+        {{ "Hola " + nombre + " " + appaterno + " " + apmaterno}} <br><br>
+      </div>
+
+    </section>
+    <footer class="page-footer teal lighten-2">
+      <div class="row container">
+      </div>
+       <div class="footer-copyright">
+         <div class="container">
+         Creado con materialize y AngularJS
+         </div>
+       </div>
+     </footer>
+
+     <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+     <script src = "js/materialize.min.js"></script>
+     <script>
+            var app = angular.module("modulo1", []);
+            app.controller("controlador1", function($scope) {
+                $scope.nombre = "Javier";
+                $scope.appaterno = "Mendez";
+                $scope.apmaterno = "Martinez";
+            });
+            
+            var app = angular.module("modulo2", []);
+            app.controller("controlador2", function($scope) {
+                $scope.nombre = "Juan";
+                $scope.appaterno = "Perez";
+                $scope.apmaterno = "Castro";
+            });
+            </script>
+
+  </body>
+</html>
